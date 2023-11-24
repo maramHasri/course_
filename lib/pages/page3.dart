@@ -96,40 +96,49 @@ class page_three extends StatelessWidget {
               ],
             ),
           ),
-          ListTile(
-            leading: Icon(
-              Icons.check_circle,
-              color: const Color.fromARGB(255, 65, 33, 243),
-            ),
-            title: Text(
-              "Payment Methods",
-              style: TextStyle(fontSize: 17, color: Colors.white),
-            ),
-            subtitle: Text(
-              "Select your payment type.",
-              style: TextStyle(fontSize: 15, color: Colors.grey),
-            ),
-          ),
-          ListTile(
-            leading: Image.asset("assets/Clip path group.png"),
-            title: Text(
-              "coupon",
-              style: TextStyle(fontSize: 17, color: Colors.white),
-            ),
-            subtitle: Text(
-              "Invite friends and earn \$RIIDE.",
-              style: TextStyle(fontSize: 15, color: Colors.grey),
+          InkWell(
+            onTap: () {},
+            child: ListTile(
+              leading: Icon(
+                Icons.check_circle,
+                color: const Color.fromARGB(255, 65, 33, 243),
+              ),
+              title: Text(
+                "Payment Methods",
+                style: TextStyle(fontSize: 17, color: Colors.white),
+              ),
+              subtitle: Text(
+                "Select your payment type.",
+                style: TextStyle(fontSize: 15, color: Colors.grey),
+              ),
             ),
           ),
-          ListTile(
-            leading: Image.asset('assets/Shape (1).png'),
-            title: Text(
-              "Crypto",
-              style: TextStyle(fontSize: 17, color: Colors.white),
+          InkWell(
+            onTap: () {},
+            child: ListTile(
+              leading: Image.asset("assets/Clip path group.png"),
+              title: Text(
+                "coupon",
+                style: TextStyle(fontSize: 17, color: Colors.white),
+              ),
+              subtitle: Text(
+                "Invite friends and earn \$RIIDE.",
+                style: TextStyle(fontSize: 15, color: Colors.grey),
+              ),
             ),
-            subtitle: Text(
-              "Pay with other cryptocurrency.",
-              style: TextStyle(fontSize: 15, color: Colors.grey),
+          ),
+          InkWell(
+            onTap: () {},
+            child: ListTile(
+              leading: Image.asset('assets/Shape (1).png'),
+              title: Text(
+                "Crypto",
+                style: TextStyle(fontSize: 17, color: Colors.white),
+              ),
+              subtitle: Text(
+                "Pay with other cryptocurrency.",
+                style: TextStyle(fontSize: 15, color: Colors.grey),
+              ),
             ),
           ),
         ],

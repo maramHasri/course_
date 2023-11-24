@@ -1,13 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:rating/pages/page3.dart';
 
-class page_two extends StatelessWidget {
+class page_two extends StatefulWidget {
   const page_two({super.key});
+
+  @override
+  State<page_two> createState() => _page_twoState();
+}
+
+class ChoiceItem {
+  final String title;
+  bool isSelected;
+  ChoiceItem({required this.title, this.isSelected = false});
+}
+
+class _page_twoState extends State<page_two> {
+  List<ChoiceItem> choices = [
+    ChoiceItem(title: '1\$'),
+    ChoiceItem(title: '5\$'),
+    ChoiceItem(title: '10\$'),
+  ];
+
+  int isSelected = -1;
+
+  void selectChoice(int index) {
+    setState(() {
+      choices.forEach((choice) {
+        choice.isSelected = false;
+      });
+
+      // Select the chosen choice
+      choices[index].isSelected = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 14, 13, 13),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: Column(
         children: [
           Stack(
@@ -21,6 +51,8 @@ class page_two extends StatelessWidget {
                   children: [
                     InkWell(
                         onTap: () {
+                          // lis.removeAt(index);
+                          // lis.insert(index, element);
                           Navigator.pop(context);
                         },
                         child: Image.asset('assets/Frame 12.png')),
@@ -92,49 +124,33 @@ class page_two extends StatelessWidget {
               )),
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromARGB(0, 255, 193, 7),
-                    radius: 30,
-                    child: Text(
-                      "\$1",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromARGB(0, 255, 193, 7),
-                    radius: 30,
-                    child: Text("\$2",
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600)),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromARGB(0, 255, 193, 7),
-                    radius: 30,
-                    child: Text("\$5",
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600)),
-                  ),
-                )
-              ],
-            ),
+            child: SizedBox(
+                height: 100,
+                width: 300,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: choices.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        selectChoice(index);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 17),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: choices[index].isSelected
+                              ? Color(0xff4CE5B1)
+                              : Colors.grey,
+                          child: Text(
+                            choices[index].title,
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                )),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 30),

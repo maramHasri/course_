@@ -105,24 +105,21 @@ class page_one extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: MaterialButton(
-              height: 50,
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(9),
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => page_two()));
-              },
-              color: Color(0xff4CE5B1),
-              minWidth: 310,
-              child: Text(
-                "Confirm",
-                style: TextStyle(color: Colors.white),
-              ),
+          MaterialButton(
+            height: 50,
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(9),
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => page_two()));
+            },
+            color: Color(0xff4CE5B1),
+            minWidth: 310,
+            child: Text(
+              "Confirm",
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
